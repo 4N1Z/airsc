@@ -56,7 +56,7 @@ export default function ResearchChat() {
                       return (
                         <div key={toolCallId} className="mt-3 space-y-3">
                           {papers.map((paper: any, index: number) => (
-                            <ResearchPaper key={index} {...paper} />
+                            // <ResearchPaper key={index} {...paper} />
                           ))}
                         </div>
                       );

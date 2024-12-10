@@ -15,7 +15,7 @@ export async function POST(req:Request) {
               A short answer to the query
               The corresponding research paper to the user based on the context/query.`,
             messages,
-            maxSteps:4,
+            maxSteps:3,
             tools:{
                 getResearchPaper:{
                     description:'Search for the corresponding research paper to the user based on the context',
@@ -23,7 +23,7 @@ export async function POST(req:Request) {
                         keyword:z.string().describe('The keyword of the research paper to search'),
                     }),
                     execute:async({keyword}:{keyword:string})=>{
-                        const papers = await searchSemanticScholar(keyword,5,'relevance');
+                        const papers = await searchSemanticScholar(keyword,5);
                         console.log("AI Agent research paper search :: ",papers)
                         return papers;
                     }
